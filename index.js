@@ -1,5 +1,6 @@
 const express = require('express')
 const indeed = require('./lib/scraper.js')
+const path = require('path');
 
 const queryOptions = {
   query: '',
