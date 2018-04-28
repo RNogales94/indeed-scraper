@@ -22,5 +22,4 @@ const PORT = process.env.PORT || 5000
 
 express()
   .get('/', (req, res) => res.send("Hola Martita"))
-  .get('/jobs', (req, res) => res.send(./GR_jobs.js))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
