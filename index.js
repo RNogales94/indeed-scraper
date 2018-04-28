@@ -1,7 +1,7 @@
 const express = require('express')
 const indeed = require('./lib/scraper.js')
 
-var GR_jobs = JSON.parse(./GR_jobs.json);
+var GR_jobs = JSON.parse('./GR_jobs.json');
 
 const queryOptions = {
   query: '',
