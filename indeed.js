@@ -8,7 +8,7 @@ const queryOptions = {
   jobType: 'fulltime',
   maxAge: '7',
   sort: 'date',
-  limit: '0'
+  limit: '100'
 };
 
 indeed.query(queryOptions).then(res => {
