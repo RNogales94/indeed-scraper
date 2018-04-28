@@ -1,8 +1,6 @@
 const express = require('express')
 const indeed = require('./lib/scraper.js')
 
-var GR_jobs = JSON.parse('./GR_jobs.json');
-
 const queryOptions = {
   query: '',
   city: 'Granada, España',
@@ -14,15 +12,17 @@ const queryOptions = {
   limit: '10'
 };
 
-var JobList
-
 indeed.query(queryOptions).then(res => {
     JobList = res; // An array of Job objects
 });
 
 const PORT = process.env.PORT || 5000
 
-express()
-  .get('/', (req, res) => res.send("Hola Martita"))
-  .get('/jobs', (req, res) => res.send(GR_jobs))
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+
+var app = express();
+
+app.get('/', (req, res) => res.render('index'));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+app.engine('pug', require('pug').__express);
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
